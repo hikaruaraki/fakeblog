@@ -1,0 +1,27 @@
+{% load static%}
+<!--メニュー-->
+<nav id="menubar">
+<ul>
+	{% if user.is_authenticated %}
+<div>
+    <h3>{{ user }}でログイン中</h3>
+</div>
+{% else %}
+{% endif %}
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'post:post' %}">投稿</a></li>
+    <li><a href="{% url 'accounts:logout' %}">ログアウト</a></li>
+    {% else %}
+    <li><a href="{% url 'accounts:signup' %}">新規登録</a></li>
+    <li><a href="{% url 'accounts:login' %}">ログイン</a></li>
+    {% endif %}
+    <li><a href="{% url 'post:view' %}">閲覧</a></li>
+    <li><a href="{% url 'comment:commentbase' %}">評価</a></li>
+
+<!--タイトル-->
+{% block title %}
+{% endblock %}
+
+<!--本文-->
+{% block contents %}
+{% endblock %}

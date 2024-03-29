@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% csrf_token %}
+<h2>投稿しました！</h2>
+<a href="{% url 'post:view' %}">閲覧する</a>
+<a href="{% url 'app:index' %}">トップに戻る</a>
+{% endblock %}
+

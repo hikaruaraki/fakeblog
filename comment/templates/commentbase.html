@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>このサイトの評価</h2>
+{% endblock %}
+
+{% block contents %}
+<a href="{% url 'comment:comment' %}">コメントする</a>
+
+<hr>
+
+{% for comment in comment %}
+{% csrf_token %}
+    {{ comment.users }}:{{ comment.publishe_date }}<br>
+    {{ comment.comment }}<br>
+<hr>
+{% endfor %}
+
+{% endblock %}

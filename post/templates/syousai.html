@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block contents %}
+
+{% csrf_token %}
+<div>
+    <p>
+    {{ post.title }}<br>
+    内容:{{ post.post }}<br>
+    <img src="../photo/{{post.media}}" width="200" height="150"><br>
+    日付:{{ post.published_date }}<br>
+    
+</div>
+<a href="{% url 'post:view' %}">戻る</a>
+{% endblock %}

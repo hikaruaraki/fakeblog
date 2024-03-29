@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="contraner">
+    <div class="row">
+        <div class="col affet-4 py-4">
+            <h3>登録が完了しました。</h3>
+            <p><a href="{% url 'accounts:login'%}">ログインはこちら</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

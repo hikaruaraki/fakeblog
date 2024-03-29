@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+<h2>一覧ページ</h2>
+{% endblock %}
+
+
+{% block contents %}
+{% for post in post %}
+<div>
+    <li>
+    <a href="{% url 'post:syousai' post_id=post.id%}">{{ post.title }}</a>
+    </li>
+</div>  
+    
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>投稿</h2>
+{% endblock %}
+
+{% block  contents%}
+{% for post in post %}
+        <div class="post">
+        {% if post.image %}
+        <div class ="media">
+            <img src="{{ post.media.url }}" style="width:300px;height:auto">
+        </div>
+        {% endif %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.link|linebreaksbr }}</p>
+        </div>
+{% endfor %}
+<form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+<!-- </form>
+    <br>
+    <h1>投稿・更新ページ</h1>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">保存</button>
+    </form>
+    <br><br> -->
+{% endblock %}
